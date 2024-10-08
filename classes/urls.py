@@ -1,9 +1,10 @@
-from django.urls import path
+from rest_framework import routers
 
-from classes import views
+from classes.models import Mentoring
+from classes.views import CategoryViewSet, ReviewViewSet, MentoringViewSet
 
-urlpatterns = [
-    path("classes/category/", views.CategoryViewSet.as_view(), name="category_model_view"),
-    path("classes/mentoring/", views.MentoringViewSet.as_view(), name="mentoring_model_view"),
-    path("classes/review/", views.ReviewViewSet.as_view(), name="review_model_view"),
-]
+router = routers.SimpleRouter()
+router.register(r'classes/category', CategoryViewSet)
+router.register(r'classes/mentoring', MentoringViewSet)
+router.register(r'classes/review', ReviewViewSet)
+urlpatterns = router.urls
