@@ -2,11 +2,11 @@ import factory
 from factory import Faker, SubFactory
 
 from users.factories import MentorFactory, StudentFactory
-from .models import Message
+from .models import Chat
 
-class MessageFactory(factory.django.DjangoModelFactory):
+class ChatFactory(factory.django.DjangoModelFactory):
     class Meta:
-        model = Message
+        model = Chat
 
     body_message = Faker('text', max_nb_chars=100)
     mentor = SubFactory(MentorFactory)

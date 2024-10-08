@@ -1,4 +1,4 @@
-from chat.factories import MessageFactory
+from chat.factories import ChatFactory
 from classes.factories import CategoryFactory, MentoringFactory, ReviewFactory
 from schedules.factories import ScheduleFactory
 from users.factories import MentorFactory, StudentFactory
@@ -22,7 +22,7 @@ def populate_database():
     schedules = ScheduleFactory.create_batch(12)
     print(f'Created {len(schedules)} schedules')
 
-    messages = MessageFactory.create_batch(20)
+    messages = ChatFactory.create_batch(20)
     print(f'Created {len(messages)} messages')
 
     print("DB Successfully populated")
